@@ -9,12 +9,22 @@
   </head>
   <body>
     <div class="container">
+      <button class="btn-success" id="show-state">Current Stats</button>
+      <button class="btn-success" id="make-plant">Make new Plant</button>
+      <hr>
+      <button class="btn-success" id="next">next</button>
+      <button class="btn-success" id="back">back</button>
+      <hr>
       <div class="grow-buttons">
-        <button class="btn-success" id="feed">Add soil</button>
-        <button class="btn-success" id="show-state">Current Stats</button>
+        <button class="feed btn-success" id="feed">Add soil</button>
+        <button class="hydrate btn-success" id="hydrate">Add water</button>
+        <button class="light btn-success" id="light">Add light</button>
       </div>
+      <hr>
       <h1>Your Plant's Values</h1>
       <h3><div id="soil-value">0</div></h3>
+      <h3><div id="water-value">0</div></h3>
+      <h3><div id="light-value">0</div></h3>
     </div>
   </body>
 </html>

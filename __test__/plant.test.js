@@ -1,10 +1,15 @@
-import {changeState} from './../src/js/plant';
+import {changeState, stateControl, blueFood, superWater} from './../src/js/plant';
 
 describe('asdf', ()=> {
-let plant = new Plant();
 
   test('should return money converted to coins', ()=> {
-    expect(changeState("water")(10)(plant)).toEqual({water: 10});
+    const newState = stateControl(blueFood);
+    expect(newState.soil).toEqual(5);
+  });
+
+  test('should return money converted to coins', ()=> {
+    const newState = stateControl(superWater);
+    expect(newState.water).toEqual(5);
   });
 
 })
