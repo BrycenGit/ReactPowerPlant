@@ -1,7 +1,7 @@
 // This function stores our state.
 
-export const storeState = () => {
-  let currentState = {};
+export const storeState = (nameParam) => {
+  let currentState = { name: nameParam, soil: 0, water: 0, light: 0};
   return (stateChangeFunction = state => state) => {
     const newState = stateChangeFunction(currentState);
     currentState = {...newState};
@@ -9,11 +9,24 @@ export const storeState = () => {
   };
 };
 
-export const stateControl = storeState();
+// const storePlants = () => {
+//   const plantArray = []
+//   return () => {
+//     let currentState = {};
+//     plantArray[plantArray.length] = storeState()
+//     return (stateChangeFunction = state => state) => {
+//       const newState = stateChangeFunction(currentState);
+//       currentState = {...newState};
+//       return newState;
+//     };
+//   };
+// };
 
+export const stateControl = storeState();
+// export const plantControl = storePlants();
 // This is a function factory. We can easily create more specific functions that alter a plant's soil, water, and light to varying degrees.
 
-const changeState = (prop) => {
+export const changeState = (prop) => {
   return (value) => {
     return (state) => ({
       ...state,
@@ -22,13 +35,11 @@ const changeState = (prop) => {
   };
 };
 
-// We create four functions using our function factory. We could easily create many more.
+function makePlant() {
+  const newPlant = storeState(plant);
+  return newPlant;
+}
 
-export const feed = changeState("soil")(1);
-export const blueFood = changeState("soil")(5);
-
-export const hydrate = changeState("water")(1);
-export const superWater = changeState("water")(5);
-
-export const sun = changeState("light")(1);
-export const superSun = changeState("light")(5);
+function makeFungi() {
+  const fungi = storeState();
+}

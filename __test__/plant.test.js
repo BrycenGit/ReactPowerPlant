@@ -1,6 +1,9 @@
-import {changeState, stateControl, blueFood, superWater} from './../src/js/plant';
+import {changeState, stateControl} from './../src/js/plant';
 
 describe('asdf', ()=> {
+
+  const blueFood = changeState("soil")(5);
+  const superWater = changeState("water")(5);
 
   test('should return money converted to coins', ()=> {
     const newState = stateControl(blueFood);
